@@ -4,25 +4,10 @@
 #include<iostream>
 #include<stdlib.h>
 using namespace std;
-int GetValue(const Princess &p, const char str[])
-{
-    if (isdigit(str[0])) return atoi(str);
-    else return GetAttribute(&p, str)->val;
-}
-bool Satisfy(const Princess &p, const Condition &cond)
-{
-    if(cond.relation=='>') if( GetValue(p, cond.lhs) > GetValue(p, cond.rhs) ) return true;
-        else if(cond.relation=='=') if( GetValue(p, cond.lhs) == GetValue(p, cond.rhs) ) return true;
-            else if( GetValue(p, cond.lhs) < GetValue(p, cond.rhs) ) return true;
-
-    return false;
-}
 int main()
 {
-    /*
     int day=10;
     int countDay=day-1,op=0;
-
     Princess pri;
     Place plc;
     AllPlaces allp;
@@ -46,7 +31,7 @@ int main()
         cout<<"=================================================================="<<endl;
         PrintAllplace(allp);
         printf("==================================================================\n");
-        printf("\nWhich place would you like to go?...(1~5)>");
+        printf("\nWhich place would you like to go?...(1 ~ 5)>");
         scanf("%d",&op);
         if(op>=1&&op<=5)
         {
@@ -68,41 +53,55 @@ int main()
         system("pause");
         system("cls");
     }
-
     //Princess becomes which class
-   */
     AllTitleRules allr;
+    int ruleNum=0;
+    PrintPrincess(&pri);
+    cout<<endl;
     if(!Create(&allr)) printf("allrules create fail!\n");
-    for(int i=0;i<allr.num_rules;++i)
-    {
-        cout<<allr.rules[i].title<<"-----------"<<endl;
-        for(int j=0;j<allr.rules[j].num_conditions;++j)
-        {
-            cout<<allr.rules[i].conditions[j].lhs<<endl;
-            cout<<allr.rules[i].conditions[j].relation<<endl;
-            cout<<allr.rules[i].conditions[j].rhs<<endl;
-        }
-
-    }
-     /*
     else
     {
-        int nobody=0; //0 as NO, 1 as YES
-        PrintPrincess(&pri);
-        //Print(&allr); //To see all rules
-        printf("\nAfter %d days, Princess %s becomes a ", day, pri.name);
-        for (int i=0; i<allr.num_rules; i++) //rule i
+        for(int i=0;i<allr.num_rules;++i)
         {
-            for(int j=0; j<allr.rules[i].num_conditions; j++) //condition j
+            int matchCon=0;
+            for(int j=0;j<allr.rules[i].num_conditions;++j)
             {
-                if( Satisfy(pri, allr.rules[i].conditions[j]) ) continue;
-                else break;
-                if( j==(allr.num_rules-1) ) nobody=1, printf("%s.\n", allr.rules[j].title); //All conditions have been checked, and become SOMEBODY
+                int lhs=0,rhs=0;
+
+                const Attribute *attrlhs=GetAttribute(&pri,allr.rules[i].conditions[j].lhs);
+                const Attribute *attrrhs=GetAttribute(&pri,allr.rules[i].conditions[j].rhs);
+
+                if(attrlhs!=nullptr)lhs=attrlhs->val;
+                else lhs=atoi(allr.rules[i].conditions[j].lhs);
+
+                if(attrrhs!=nullptr)rhs=attrrhs->val;
+                else rhs=atoi(allr.rules[i].conditions[j].rhs);
+
+                switch (allr.rules[i].conditions[j].relation)
+                {
+                case '=':
+                    if(lhs==rhs) matchCon++;
+                    break;
+                case '<':
+                    if(lhs<rhs) matchCon++;
+                    break;
+                case '>':
+                    if(lhs>rhs) matchCon++;
+                    break;
+                }
+
+                if(matchCon==allr.rules[i].num_conditions)
+                {
+                    ruleNum++;
+                    cout<<"After "<<day<<" days, Princess "<<pri.name<<" becomes a "<<allr.rules[i].title<<"."<<endl;
+                }
             }
         }
-        if(nobody!=1) printf("nobody.\n"); //become NOBODY
-    }*/
-
+    }
+    if(ruleNum==0)
+    {
+        cout<<"After "<<day<<" days, Princess "<<pri.name<<" becomes a nobody."<<endl;
+    }
     system("pause");
     return 0;
 }

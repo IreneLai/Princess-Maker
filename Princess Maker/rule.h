@@ -7,7 +7,7 @@ const int MaxNumRules=10;
 struct Condition
 {
     char lhs[MaxLenName] = "", rhs[MaxLenName] = "";
-    char relation;
+    char relation='\0';
 };
 void Create(Condition *con,const char lhs_condition[],const char rhs_condition[],char relation);
 void Print(const Condition *con);
