@@ -19,7 +19,7 @@ int main()
         <<"|   Princess Maker Extremely Simplied   |"<<endl
         <<"========================================="<<endl<<endl;
     cout<<"Hello Princess, what's your name?...(no more than "<<MaxLenName<<" chars)>";
-    cin>>pri.name;
+    gets(pri.name);
     cout<<endl<<"Princess "<<pri.name<<", let's start the "<<day<<"-day journey!"<<endl<<endl;
     system("pause");
     system("cls");
@@ -61,10 +61,10 @@ int main()
     if(!Create(&allr)) printf("allrules create fail!\n");
     else
     {
-        for(int i=0;i<allr.num_rules;++i)
+        for(int i=0; i<allr.num_rules; ++i)
         {
             int matchCon=0;
-            for(int j=0;j<allr.rules[i].num_conditions;++j)
+            for(int j=0; j<allr.rules[i].num_conditions; ++j)
             {
                 int lhs=0,rhs=0;
 
@@ -89,18 +89,18 @@ int main()
                     if(lhs>rhs) matchCon++;
                     break;
                 }
-
-                if(matchCon==allr.rules[i].num_conditions)
-                {
-                    ruleNum++;
-                    cout<<"After "<<day<<" days, Princess "<<pri.name<<" becomes a "<<allr.rules[i].title<<"."<<endl;
-                }
+            }
+            if(matchCon==allr.rules[i].num_conditions)
+            {
+                ruleNum++;
+                printf("After %d days, Princess %s becomes a %s.\n",day,pri.name,allr.rules[i].title);
             }
         }
     }
     if(ruleNum==0)
     {
-        cout<<"After "<<day<<" days, Princess "<<pri.name<<" becomes a nobody."<<endl;
+        printf("After %d days, Princess %s becomes a Nobody.\n",day,pri.name);
+
     }
     system("pause");
     return 0;
