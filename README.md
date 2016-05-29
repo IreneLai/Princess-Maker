@@ -1,5 +1,4 @@
 # Princess-Maker<br/>
-<br/>
 Attribute, Princess: 賴品儒<br/>
 Effect, Place, PlaceList: 李嘉恩<br/>
 Condition, Rule, RuleList: 蘇偉傑<br/>
