@@ -1,0 +1,80 @@
+# depslib dependency file v1.0
+1433317345 source:c:\users\user\desktop\princess maker\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"princess.h"
+
+1433317353 source:c:\users\user\desktop\princess maker\princess.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"princess.h"
+
+1433316637 c:\users\user\desktop\princess maker\princess.h
+
+1433317353 source:c:\users\ysclub\desktop\princess maker\princess.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"princess.h"
+
+1433316637 c:\users\ysclub\desktop\princess maker\princess.h
+
+1433732577 source:c:\users\ysclub\desktop\princess maker\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"princess.h"
+	"places.h"
+	"rule.h"
+
+1433601056 c:\users\ysclub\desktop\princess maker\places.h
+	"princess.h"
+	<stdio.h>
+
+1433606242 source:c:\users\ysclub\desktop\princess maker\places.cpp
+	"Places.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1433732476 source:c:\users\ysclub\desktop\princess maker\rule.cpp
+	<stdio.h>
+	"princess.h"
+	"rule.h"
+
+1433729609 c:\users\ysclub\desktop\princess maker\rule.h
+	"princess.h"
+
+1464448286 source:d:\temp\princess maker\main.cpp
+	"princess.h"
+	"places.h"
+	"rule.h"
+	<iostream>
+	<stdlib.h>
+
+1464448343 d:\temp\princess maker\princess.h
+	<string.h>
+	<stdio.h>
+
+1464442075 d:\temp\princess maker\places.h
+
+1464410366 d:\temp\princess maker\rule.h
+	"princess.h"
+
+1464448343 source:d:\temp\princess maker\princess.cpp
+	"princess.h"
+	<iostream>
+	<iomanip>
+
+1464444804 source:d:\temp\princess maker\rule.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"rule.h"
+
+1464443610 source:d:\temp\princess maker\places.cpp
+	<stdio.h>
+	<string.h>
+	"princess.h"
+	"places.h"
+

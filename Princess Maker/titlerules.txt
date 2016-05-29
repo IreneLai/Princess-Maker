@@ -1,0 +1,3 @@
+Queen: (Intelligence > 60) (Elegance > 60) (Charm > 60)
+Scientist: (Intelligence > 80)
+Magician: (Magic > 50) (Magic > Charm) (Magic > Elegance) (Magic > Intelligence)
